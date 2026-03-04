@@ -16,7 +16,7 @@ html, body {
 
 body {
     font-family: 'Open Sans', 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #001b1f 0%, #00446e 50%, #050607 100%);
+    background: linear-gradient(135deg, #001b1f 0%, #00446e 50%, #092642 100%);
     background-attachment: fixed;
     color: #e2e8f0;
     padding: 2rem;
@@ -159,7 +159,7 @@ a:hover {
     display: inline-block;
     border-radius: 6px;
     border: 1px solid rgba(255,255,255,0.04);
-    box-shadow: 0 6px 16px rgba(2,6,23,0.6);
+    box-shadow: 0 0 16px rgba(2,6,23,0.6);
 }
 
 .credly-badges {
