@@ -2,7 +2,7 @@
 
 A cloud-native resume built with AWS serverless architecture, Infrastructure as Code, and automated CI/CD pipelines.
 
-🌐 **Live:** http://joseph-cloud-resume.s3-website-us-east-1.amazonaws.com
+🌐 **Live:** https://d2s1g6429pldt.cloudfront.net/
 
 ---
 
@@ -150,7 +150,7 @@ AWS_S3_BUCKET          → S3 bucket name
 - [x] REST API with API Gateway
 - [x] CI/CD pipeline with GitHub Actions
 - [x] Infrastructure as Code with Terraform
-- [ ] CloudFront distribution + HTTPS
+- [X] CloudFront distribution + HTTPS
 - [ ] Custom domain
 - [ ] Unit tests for Lambda function
 
