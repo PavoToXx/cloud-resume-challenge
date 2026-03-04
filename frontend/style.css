@@ -162,6 +162,16 @@ a:hover {
     box-shadow: 0 6px 16px rgba(2,6,23,0.6);
 }
 
+.credly-badges {
+    background: #41e9ff9f;
+    padding: 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 /* Skills badges (pulido visual) */
 .skills {
     display: flex;
