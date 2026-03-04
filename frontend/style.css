@@ -163,13 +163,9 @@ a:hover {
 }
 
 .credly-badges {
-    background: #41e9ff9f;
-    padding: 1.5rem;
-    border-radius: 10px;
+    background: #9ee2eb8e;
     display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    width: fit-content;
 }
 
 /* Skills badges (pulido visual) */
