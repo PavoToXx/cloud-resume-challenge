@@ -159,7 +159,7 @@ a:hover {
     display: inline-block;
     border-radius: 6px;
     border: 1px solid rgba(255,255,255,0.04);
-    box-shadow: 0 0 16px rgba(2,6,23,0.6);
+    box-shadow: 0 1 16px rgba(2,6,23,0.6);
 }
 
 .credly-badges {
