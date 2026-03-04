@@ -93,6 +93,14 @@ a {
     font-size: 0.9rem;
 }
 
+.certifications ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
 .skills {
     display: flex;
     flex-wrap: wrap;
