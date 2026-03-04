@@ -1,36 +1,16 @@
-// Fetch visitor count from API Gateway
-const API_ENDPOINT = 'YOUR_API_GATEWAY_ENDPOINT_HERE'; // Replace with your API Gateway URL
+const API_URL = "https://fg1jfmdws4.execute-api.us-east-1.amazonaws.com/visits";
+// ⚠️ Reemplaza con TU URL de API Gateway
 
-async function updateVisitorCount() {
+async function getVisits() {
     try {
-        const response = await fetch(API_ENDPOINT, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
+        const response = await fetch(API_URL);
         const data = await response.json();
-        
-        // Update the visitor count in the DOM
-        const visitorCountElement = document.getElementById('visitor-count');
-        if (visitorCountElement) {
-            visitorCountElement.textContent = data.count || 0;
-        }
-        
-        console.log('Visitor count updated:', data.count);
+        document.getElementById("contador").innerText = data.visits;
     } catch (error) {
-        console.error('Error fetching visitor count:', error);
-        const visitorCountElement = document.getElementById('visitor-count');
-        if (visitorCountElement) {
-            visitorCountElement.textContent = 'Error';
-        }
+        document.getElementById("contador").innerText = "N/A";
+        console.error("Error:", error);
     }
 }
 
-// Call the function when the page loads
-document.addEventListener('DOMContentLoaded', updateVisitorCount);
+// Llama la función cuando carga la página
+getVisits();
