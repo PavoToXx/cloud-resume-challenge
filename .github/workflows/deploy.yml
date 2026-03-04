@@ -1,103 +1,31 @@
-# name: Deploy Cloud Resume
+name: Deploy CV to S3
 
-# on:
-#   push:
-#     branches:
-#       - main
-#   workflow_dispatch:
+on:
+  push:
+    branches:
+      - main
 
-# env:
-#   AWS_REGION: us-east-1
-
-# jobs:
-#   deploy-frontend:
-#     name: Deploy Frontend to S3
-#     runs-on: ubuntu-latest
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
     
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v4
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
 
-#       - name: Configure AWS credentials
-#         uses: aws-actions/configure-aws-credentials@v4
-#         with:
-#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#           aws-region: ${{ env.AWS_REGION }}
+      - name: Configurar credenciales AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
 
-#       - name: Get S3 bucket name from Terraform output
-#         id: get-bucket
-#         working-directory: terraform
-#         run: |
-#           # Option 1: If Terraform state is accessible
-#           # BUCKET_NAME=$(terraform output -raw website_bucket_name)
-          
-#           # Option 2: Use environment variable or secret
-#           BUCKET_NAME="${{ secrets.S3_BUCKET_NAME }}"
-#           echo "bucket_name=${BUCKET_NAME}" >> $GITHUB_OUTPUT
-
-#       - name: Sync frontend files to S3
-#         run: |
-#           aws s3 sync frontend/ s3://${{ steps.get-bucket.outputs.bucket_name }} \
-#             --delete \
-#             --exclude ".git/*" \
-#             --exclude ".github/*" \
-#             --cache-control "max-age=3600"
-
-#       - name: Invalidate CloudFront cache (optional)
-#         run: |
-#           # Uncomment and set CLOUDFRONT_DISTRIBUTION_ID secret if using CloudFront
-#           # aws cloudfront create-invalidation \
-#           #   --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-#           #   --paths "/*"
-#           echo "CloudFront invalidation skipped. Set CLOUDFRONT_DISTRIBUTION_ID secret to enable."
-
-#   deploy-backend:
-#     name: Deploy Lambda Function
-#     runs-on: ubuntu-latest
-#     needs: deploy-frontend
-    
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v4
-
-#       - name: Set up Python
-#         uses: actions/setup-python@v5
-#         with:
-#           python-version: '3.11'
-
-#       - name: Configure AWS credentials
-#         uses: aws-actions/configure-aws-credentials@v4
-#         with:
-#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#           aws-region: ${{ env.AWS_REGION }}
-
-#       - name: Install dependencies
-#         working-directory: backend
-#         run: |
-#           pip install boto3 -t .
-
-#       - name: Package Lambda function
-#         working-directory: backend
-#         run: |
-#           zip -r lambda_function.zip .
-
-#       - name: Update Lambda function code
-#         working-directory: backend
-#         run: |
-#           FUNCTION_NAME="${{ secrets.LAMBDA_FUNCTION_NAME }}"
-#           aws lambda update-function-code \
-#             --function-name ${FUNCTION_NAME} \
-#             --zip-file fileb://lambda_function.zip
-
-#       - name: Wait for Lambda update to complete
-#         run: |
-#           FUNCTION_NAME="${{ secrets.LAMBDA_FUNCTION_NAME }}"
-#           aws lambda wait function-updated \
-#             --function-name ${FUNCTION_NAME}
-
-#       - name: Deployment complete
-#         run: |
-#           echo "✅ Frontend and backend deployed successfully!"
-
+      - name: Deploy a S3
+        run: |
+          aws s3 sync ./frontend s3://${{ secrets.AWS_S3_BUCKET }} \
+            --delete \
+            --exclude "*.py" \
+            --exclude "*.tf"
+      
+      - name: Confirmar deploy
+        run: echo "✅ Deploy exitoso a S3"
