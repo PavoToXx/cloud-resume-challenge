@@ -1,310 +1,605 @@
-# ☁️ Cloud Resume Challenge
+# ☁️ Cloud Resume - Joseph Dominguez
 
-A serverless cloud resume website with a dynamic visitor counter, built using AWS services and Infrastructure as Code (Terraform).
+CV profesional desplegado en AWS con contador de visitas dinámico. Stack serverless con S3, CloudFront, API Gateway, Lambda, DynamoDB y CI/CD automatizado con GitHub Actions.
 
-## 🏗️ Architecture
+**🌍 Sitio en Vivo:** [Accede aquí](https://cloudfront-url-aqui.cloudfront.net)  
+**👤 Autor:** Joseph Dominguez — Cloud Infrastructure & MLOps Engineer  
+**📍 Ubicación:** Ecuador 🇪🇨
+
+---
+
+## 🏗️ Arquitectura del Sistema
 
 ```
-┌──────────────────────────────────────────────────────────────────────────┐
-│                             Internet Users                                │
-└────────────────────────┬─────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────┐
+│                     Usuarios en Internet                        │
+└────────────────────┬───────────────────────────────────────────┘
+                     │ HTTPS (443)
+                     ▼
+        ┌─────────────────────────────────┐
+        │  CloudFront Distribution        │
+        │  ✓ Cache global (Edge locations)│
+        │  ✓ HTTPS/SSL automático         │
+        │  ✓ Baixa latencia en Ecuador    │
+        └─────────────────┬───────────────┘
                          │
                          ▼
-        ┌────────────────────────────────────┐
-        │      CloudFront (CDN)               │
-        │  - Global Content Delivery          │
-        │  - HTTPS/SSL                        │
-        │  - Caching                          │
-        └────────────┬───────────────────────┘
-                     │
-                     ▼
-        ┌────────────────────────────────────┐
-        │   S3 Static Website Hosting        │
-        │   - index.html                     │
-        │   - style.css                      │
-        │   - script.js                      │
-        └────────────┬───────────────────────┘
-                     │
-                     │ (JavaScript Fetch)
-                     │
-                     ▼
-        ┌────────────────────────────────────┐
-        │    API Gateway (HTTP API)          │
-        │    POST /count                     │
-        │    - CORS Enabled                  │
-        │    - Request/Response Logging      │
-        └────────────┬───────────────────────┘
-                     │
-                     ▼
-        ┌────────────────────────────────────┐
-        │   Lambda Function (Python 3.11)    │
-        │   - Increment visitor count        │
-        │   - Return updated count           │
-        │   - Error handling                 │
-        └────────────┬───────────────────────┘
-                     │
-                     ▼
-        ┌────────────────────────────────────┐
-        │   DynamoDB Table                   │
-        │   Table: cloud-resume-visits       │
-        │   Key: id (String)                 │
-        │   Attribute: visit_count (Number)  │
-        └────────────────────────────────────┘
+        ┌─────────────────────────────────┐
+        │  S3 Static Website Hosting      │
+        │  ✓ index.html (Resume)          │
+        │  ✓ style.css (Dark Theme)       │
+        │  ✓ script.js (JS Cliente)       │
+        └─────────────────┬───────────────┘
+                         │
+            ┌────────────┴────────────┐
+            │                         │
+       [HTML Page]             [CSS/JS Assets]
+            │
+            │ fetch() al cargar
+            ▼
+        ┌─────────────────────────────────┐
+        │  API Gateway (HTTP API)         │
+        │  GET /count                     │
+        │  ✓ CORS habilitado              │
+        │  ✓ CloudWatch logs              │
+        └─────────────────┬───────────────┘
+                         │
+                         ▼
+        ┌─────────────────────────────────┐
+        │  AWS Lambda (Python 3.11)       │
+        │  ✓ Incrementa contador          │
+        │  ✓ Manejo de errores            │
+        │  ✓ Respuesta JSON               │
+        │  ✓ CORS headers                 │
+        └─────────────────┬───────────────┘
+                         │
+                         ▼
+        ┌─────────────────────────────────┐
+        │  DynamoDB Table                 │
+        │  Name: cloud-resume-visits      │
+        │  PK: id (String)                │
+        │  Attr: visit_count (Number)     │
+        │  Billing: Pay-per-request       │
+        └─────────────────────────────────┘
 
-       ┌─────────────────────────────────────┐
-       │      GitHub Actions CI/CD           │
-       │   - Auto-deploy on push to main     │
-       │   - Sync frontend to S3             │
-       │   - Update Lambda function          │
-       └─────────────────────────────────────┘
+    ┌─────────────────────────────────────┐
+    │  GitHub Actions (CI/CD Pipeline)    │
+    │  • Trigger: push a rama main        │
+    │  • Sync frontend → S3               │
+    │  • Update Lambda function code      │
+    │  • CloudFront cache invalidation    │
+    └─────────────────────────────────────┘
 ```
 
-## 🛠️ AWS Services Used
+---
 
-| Service | Purpose |
-|---------|---------|
-| **S3** | Static website hosting for HTML, CSS, and JavaScript files |
-| **CloudFront** | Content Delivery Network (CDN) for global distribution and HTTPS |
-| **API Gateway** | HTTP API to trigger Lambda function |
-| **Lambda** | Serverless function to handle visitor count logic |
-| **DynamoDB** | NoSQL database to store visitor count |
-| **IAM** | Identity and Access Management for service permissions |
-| **CloudWatch** | Logging and monitoring for Lambda and API Gateway |
+## 👨‍💼 Sobre El Proyecto
 
-## 📁 Project Structure
+Este es mi **Cloud Resume Challenge** — una demostr práctica de infraestructura serverless en AWS implementando:
+
+✅ **Frontend Moderno**  
+   - Diseño oscuro (dark theme) con colores profesionales
+   - Información personal, certificaciones, proyectos y skills
+   - Contador de visitas en tiempo real
+   - Responsive design HTML5/CSS3
+
+✅ **Backend Serverless**  
+   - Lambda function en Python 3.11
+   - Integración con DynamoDB
+   - API Gateway HTTP con CORS
+   - Error handling robusto
+
+✅ **Infraestructura Moderna**  
+   - Amazon S3 para hosting estático
+   - CloudFront para CDN global
+   - DynamoDB para persistencia
+   - Terraform para IaC (Infrastructure as Code)
+
+✅ **CI/CD Automatizado**  
+   - GitHub Actions para deploys automáticos
+   - Sincronización de cambios a S3
+   - Validación y testing
+
+✅ **Monitoreo & Logging**  
+   - CloudWatch logs para Lambda y API Gateway
+   - Debugging facilitado
+   - Auditoría de requests
+
+---
+
+## 📜 Certificaciones & Expertise
+
+### 🎓 Certificaciones
+
+- ☁️ **Oracle Cloud Infrastructure 2025** — Foundations Associate ✅
+- ☁️ **Microsoft Azure Fundamentals** — AZ-900 (en proceso) 🔄
+- 🐳 **Docker Essentials** — IBM ✅
+- 🐧 **Linux Essentials** — Cisco ✅
+- 🔐 **Introduction to Cybersecurity** — Cisco ✅
+- ☁️ **AWS Cloud Quest** — Cloud Practitioner ✅
+- ☁️ **Networking Basics** — Cisco ✅
+
+### 💼 Skills Técnicos
+
+```yaml
+Cloud Platforms:
+  - AWS (S3, Lambda, API Gateway, DynamoDB, CloudFront, IAM, CloudWatch)
+  - Oracle Cloud Infrastructure
+  - Microsoft Azure
+
+Containers & Orchestration:
+  - Docker
+  - Docker Compose
+
+Infrastructure & IaC:
+  - Terraform
+  - CloudFormation
+
+Automation & CI/CD:
+  - GitHub Actions
+  - Bash Scripting
+  - YAML
+
+Databases:
+  - DynamoDB (NoSQL)
+  - SQL (Relacional)
+
+Lenguajes de Programación:
+  - Python 3.11
+  - Bash
+  - YAML
+  - HTML5 / CSS3 / JavaScript
+
+Sistemas Operativos:
+  - Linux Administration
+  - Command Line (Terminal)
+
+Version Control:
+  - Git
+  - GitHub
+  - Workflows
+
+Networking:
+  - Networking Basics
+  - HTTP/HTTPS
+  - APIs REST
+```
+
+---
+
+## 📁 Estructura del Proyecto
 
 ```
 cloud-resume/
-├── frontend/
-│   ├── index.html          # Resume webpage
-│   ├── style.css           # Styling
-│   └── script.js           # Visitor counter logic
-├── backend/
-│   └── lambda_function.py  # Lambda function code
-├── terraform/
-│   └── main.tf             # Infrastructure as Code
-├── .github/
+│
+├── 📄 frontend/
+│   ├── index.html              # Resume profesional en HTML
+│   │   ├── Encabezado con info de contacto
+│   │   ├── Sección "Sobre mí"
+│   │   ├── Certificaciones
+│   │   ├── Proyectos
+│   │   ├── Skills técnicos
+│   │   └── Contador de visitas
+│   │
+│   ├── style.css               # Estilos CSS (Dark Theme)
+│   │   ├── Colores: Azul (#63b3ed), Naranja (#f6ad55)
+│   │   ├── Responsive design
+│   │   ├── Fuente: Segoe UI
+│   │   └── Transiciones suaves
+│   │
+│   └── script.js               # Lógica del contador de visitas
+│       ├── fetch() a API Gateway cada página vista
+│       ├── Manejo de errores con try/catch
+│       ├── Update DOM con el contador
+│       └── Event listener: DOMContentLoaded
+│
+├── 🐍 backend/
+│   └── lambda_function.py      # AWS Lambda en Python 3.11
+│       ├── DynamoDB boto3 resource
+│       ├── Incrementa visit_count en 1
+│       ├── Retorna JSON con contador
+│       ├── CORS headers en respuesta
+│       └── Error handling (ClientError, Exception)
+│
+├── 🏗️ terraform/
+│   └── main.tf                 # Infrastructure as Code
+│       ├── Variables y Provider (AWS us-east-1)
+│       ├── S3 bucket con website hosting
+│       ├── CloudFront distribution con OAI
+│       ├── DynamoDB table (pay-per-request)
+│       ├── API Gateway HTTP API
+│       ├── Lambda function + permissions
+│       ├── IAM roles + policies
+│       ├── CloudWatch log groups
+│       └── Outputs (CloudFront URL, API endpoint, etc.)
+│
+├── 🤖 .github/
 │   └── workflows/
-│       └── deploy.yml      # CI/CD pipeline
-├── LICENSE
-└── README.md
+│       └── deploy.yml          # GitHub Actions CI/CD Pipeline
+│           ├── Job 1: Deploy Frontend
+│           │   ├── Trigger: push a main
+│           │   ├── Checkout code
+│           │   ├── Configure AWS credentials
+│           │   └── sync frontend/ → S3
+│           │
+│           └── Job 2: Deploy Backend
+│               ├── Depends on Job 1
+│               ├── Setup Python 3.11
+│               ├── Install dependencies
+│               ├── Package Lambda function
+│               └── Update Lambda code
+│
+├── LICENSE                      # MIT License
+└── README.md                    # Este archivo
 ```
 
-## 🚀 Deployment Instructions
+---
 
-### Prerequisites
+## 🛠️ Servicios AWS Utilizados
 
-Before deploying, ensure you have:
+| Servicio | Propósito | Costo |
+|----------|-----------|-------|
+| **S3** | Hosting estático (HTML, CSS, JS) | ✓ Free Tier (5GB) |
+| **CloudFront** | CDN global, HTTPS, caché | ✓ Free Tier (1TB/mes) |
+| **API Gateway** | HTTP API serverless | ✓ Free Tier (1M calls/mes) |
+| **Lambda** | Función serverless Python | ✓ Free Tier (1M reqs, 400k GB-s) |
+| **DynamoDB** | Base de datos NoSQL | ✓ Free Tier (25 RCU/WCU) |
+| **IAM** | Control de permisos | ✓ Siempre gratis |
+| **CloudWatch** | Logs y monitoreo | ✓ Incluido 7 días |
 
-1. **AWS Account** with appropriate permissions
-2. **AWS CLI** installed and configured
-3. **Terraform** (v1.0+) installed
-4. **Git** installed
-5. **GitHub Account** for CI/CD
+**Costo mensual estimado:** $0-5 para bajo tráfico (Free Tier)
 
-### Step 1: Clone the Repository
+---
+
+## 🚀 Guía de Deployment
+
+### 📋 Requisitos Previos
+
+Instala:
 
 ```bash
-git clone https://github.com/yourusername/cloud-resume.git
-cd cloud-resume
+# AWS CLI v2
+aws --version
+
+# Terraform v1.0+
+terraform --version
+
+# Git
+git --version
+
+# Python 3.11+
+python --version
 ```
 
-### Step 2: Configure AWS Credentials
+**AWS Account:** Con acceso programático (Access Key + Secret Key)
+
+### 🔑 Step 1: Configurar Credenciales AWS
 
 ```bash
 aws configure
-# Enter your AWS Access Key ID
-# Enter your AWS Secret Access Key
-# Enter your default region (e.g., us-east-1)
+# AWS Access Key ID: [tu AKIA...]
+# AWS Secret Access Key: [tu clave]
+# Default region: us-east-1
+# Default output format: json
 ```
 
-### Step 3: Deploy Infrastructure with Terraform
+Verifica:
+```bash
+aws sts get-caller-identity
+# {
+#     "UserId": "AIDAI...",
+#     "Account": "123456789012",
+#     "Arn": "arn:aws:iam::123456789012:user/..."
+# }
+```
+
+### 📦 Step 2: Clonar Repositorio
+
+```bash
+git clone https://github.com/PavoToXx/cloud-resume.git
+cd cloud-resume
+```
+
+### 🏗️ Step 3: Desplegar Infraestructura
 
 ```bash
 cd terraform
 
-# Initialize Terraform
+# Inicializar Terraform (descarga providers)
 terraform init
 
-# Review the execution plan
+# Ver plan de cambios
 terraform plan
 
-# Apply the configuration
+# Aplicar configuración
 terraform apply
+
+# Escribe "yes" cuando pregunte
 ```
 
-**Note the outputs:**
-- `website_bucket_name`: Your S3 bucket name
-- `api_endpoint`: Your API Gateway endpoint
-- `cloudfront_url`: Your CloudFront distribution URL
+**Guardar outputs:**
+```
+cloudfront_url = "d12abc345xyz.cloudfront.net"
+website_bucket_name = "cloud-resume-website-abc123xy"
+api_endpoint = "https://api-id-123.execute-api.us-east-1.amazonaws.com/count"
+dynamodb_table_name = "cloud-resume-visits"
+```
 
-### Step 4: Update Frontend with API Endpoint
+### 🌐 Step 4: Configurar API Endpoint en Frontend
 
-Edit `frontend/script.js` and replace the placeholder:
+Edita `frontend/script.js`:
 
 ```javascript
-const API_ENDPOINT = 'YOUR_API_GATEWAY_ENDPOINT_HERE';
+// ANTES:
+const API_URL = "https://fg1jfmdws4.execute-api.us-east-1.amazonaws.com/visits";
+
+// DESPUÉS (usa tu endpoint real):
+const API_URL = "https://api-id-123.execute-api.us-east-1.amazonaws.com/count";
 ```
 
-With your actual API Gateway endpoint (from Terraform output):
-
-```javascript
-const API_ENDPOINT = 'https://abc123xyz.execute-api.us-east-1.amazonaws.com/count';
-```
-
-### Step 5: Upload Frontend Files to S3
+### 📤 Step 5: Sincronizar Frontend a S3
 
 ```bash
 cd ..
-aws s3 sync frontend/ s3://YOUR_BUCKET_NAME --delete
+
+# Usar el bucket name de Terraform output
+aws s3 sync frontend/ s3://cloud-resume-website-abc123xy/ --delete
+
+# Output esperado:
+# upload: frontend/index.html to s3://cloud-resume-website-abc123xy/index.html
+# upload: frontend/style.css to s3://cloud-resume-website-abc123xy/style.css
+# upload: frontend/script.js to s3://cloud-resume-website-abc123xy/script.js
 ```
 
-Replace `YOUR_BUCKET_NAME` with the bucket name from Terraform output.
+### 🔍 Step 6: Verificar Deployment
 
-### Step 6: Update HTML with Visitor Counter
+1. **Acceder al sitio:**
+   ```
+   https://d12abc345xyz.cloudfront.net
+   ```
 
-Add this to your `index.html` where you want to display the count:
+2. **Probar contador:**
+   - Abre la página
+   - El campo "Visitas al perfil" debe mostrar un número
+   - Recarga 🔄 — el número debe incrementar
 
-```html
-<p>Visitor Count: <span id="visitor-count">Loading...</span></p>
-```
+3. **Test API manual:**
+   ```bash
+   curl "https://api-id-123.execute-api.us-east-1.amazonaws.com/count"
+   # {"count": 2, "message": "Visitor count updated successfully"}
+   ```
 
-### Step 7: Access Your Website
+---
 
-Visit your CloudFront URL or S3 website endpoint to see your resume!
+## 🤖 Configurar CI/CD con GitHub Actions
 
-## 🔄 CI/CD Setup with GitHub Actions
+### Step 1: Agregar GitHub Secrets
 
-### Configure GitHub Secrets
+Ve a: **Repository Settings** → **Secrets and variables** → **Actions** → **New repository secret**
 
-In your GitHub repository, go to **Settings** → **Secrets and variables** → **Actions**, and add:
+Agrega estos 5 secrets:
 
-| Secret Name | Description |
-|-------------|-------------|
-| `AWS_ACCESS_KEY_ID` | Your AWS access key |
-| `AWS_SECRET_ACCESS_KEY` | Your AWS secret key |
-| `S3_BUCKET_NAME` | Your S3 bucket name |
-| `LAMBDA_FUNCTION_NAME` | Your Lambda function name (e.g., `cloud-resume-visitor-counter`) |
-| `CLOUDFRONT_DISTRIBUTION_ID` | (Optional) Your CloudFront distribution ID |
+| Secret | Valor | Ejemplo |
+|--------|-------|---------|
+| `AWS_ACCESS_KEY_ID` | Tu AKIA... | `AKIAI5XXXXXXXXXX` |
+| `AWS_SECRET_ACCESS_KEY` | Tu secret key | `wJalrXUtnFEMI/K7...` |
+| `S3_BUCKET_NAME` | Del terraform output | `cloud-resume-website-abc123xy` |
+| `LAMBDA_FUNCTION_NAME` | Nombre de Lambda | `cloud-resume-visitor-counter` |
+| `CLOUDFRONT_DISTRIBUTION_ID` | Tu distribution ID | `E2A1B2C3D4E5` |
 
-### Automatic Deployment
+### Step 2: Deploy Automático
 
-Once configured, every push to the `main` branch will:
-1. ✅ Sync frontend files to S3
-2. ✅ Update Lambda function code
-3. ✅ Invalidate CloudFront cache (if configured)
-
-## 🧪 Testing
-
-### Test the API Locally
+Ahora, cada `git push` a `main` dispara automáticamente:
 
 ```bash
-# Using curl
-curl -X POST https://YOUR_API_ENDPOINT/count
+# Haz cambios en tu resume
+nano frontend/index.html
 
-# Expected response
-{"count": 1, "message": "Visitor count updated successfully"}
+# Commit y push
+git add .
+git commit -m "Actualizar certificaciones"
+git push origin main
+
+# GitHub Actions se ejecuta automáticamente
+# Ve a: Actions en tu repo para ver el progreso
+# En 2-3 minutos los cambios están en vivo
 ```
 
-### Test DynamoDB
+**Workflow automático:**
+1. ✅ Deploy Frontend → sync a S3
+2. ✅ Deploy Backend → update Lambda
+3. ✅ Invalidate CloudFront → actualiza caché
+
+---
+
+## 🧪 Testing & Validación
+
+### ✅ Test del Contador
 
 ```bash
-# Check the visitor count in DynamoDB
+# Ver datos en DynamoDB
 aws dynamodb get-item \
   --table-name cloud-resume-visits \
   --key '{"id": {"S": "visitor_count"}}'
+
+# Respuesta esperada:
+# {
+#     "Item": {
+#         "id": {"S": "visitor_count"},
+#         "visit_count": {"N": "42"}
+#     }
+# }
 ```
 
-## 📊 Monitoring
-
-### CloudWatch Logs
-
-- **Lambda Logs**: `/aws/lambda/cloud-resume-visitor-counter`
-- **API Gateway Logs**: `/aws/apigateway/cloud-resume-api`
-
-View logs in AWS Console or using AWS CLI:
+### ✅ Test API Gateway
 
 ```bash
-# View Lambda logs
+# Hacer request a Lambda vía API
+curl -X GET "https://api-id-123.execute-api.us-east-1.amazonaws.com/count"
+
+# Respuesta:
+# {"count": 42, "message": "Visitor count updated successfully"}
+```
+
+### ✅ Ver Logs Lambda
+
+```bash
+# Logs en vivo
 aws logs tail /aws/lambda/cloud-resume-visitor-counter --follow
 
-# View API Gateway logs
+# Con búsqueda
+aws logs tail /aws/lambda/cloud-resume-visitor-counter --since 1h --grep "ERROR"
+
+# Ctrl+C para salir
+```
+
+### ✅ Verificar S3
+
+```bash
+# Listar archivos
+aws s3 ls s3://cloud-resume-website-abc123xy/
+
+# Verificar permisos públicos
+aws s3api get-bucket-policy --bucket cloud-resume-website-abc123xy
+
+# Probar acceso
+curl https://cloud-resume-website-abc123xy.s3.amazonaws.com/index.html
+```
+
+---
+
+## 📊 Monitoreo & Debugging
+
+### 🔍 CloudWatch Logs
+
+```bash
+# Lambda logs
+aws logs tail /aws/lambda/cloud-resume-visitor-counter --follow
+
+# API Gateway logs
 aws logs tail /aws/apigateway/cloud-resume-api --follow
 ```
 
-## 💰 Cost Estimation
+### 🐛 Troubleshooting
 
-This project uses AWS Free Tier eligible services:
+#### Problema: Contador no actualiza
 
-- **S3**: First 5GB free, then ~$0.023/GB
-- **CloudFront**: 1TB data transfer free for 12 months
-- **Lambda**: 1M free requests/month, 400,000 GB-seconds compute
-- **DynamoDB**: 25GB storage, 25 RCU/WCU free forever
-- **API Gateway**: 1M API calls free for 12 months
+```bash
+# 1. Verifica API URL en script.js
+grep API_URL frontend/script.js
 
-**Expected monthly cost**: $0-5 for low traffic sites
+# 2. Verifica Lambda logs
+aws logs tail /aws/lambda/cloud-resume-visitor-counter
 
-## 🔒 Security Best Practices
+# 3. Test API directamente
+curl "https://api-id-123.execute-api.us-east-1.amazonaws.com/count"
 
-- ✅ S3 bucket policy restricts public access appropriately
-- ✅ Lambda has minimal IAM permissions (principle of least privilege)
-- ✅ CORS configured on API Gateway
-- ✅ CloudFront enforces HTTPS
-- ✅ CloudWatch logging enabled for auditing
-- ✅ Secrets stored in GitHub Actions secrets (not in code)
+# 4. Verifica permisos IAM
+aws iam get-role-policy \
+  --role-name cloud-resume-lambda-role \
+  --policy-name cloud-resume-lambda-dynamodb-policy
+```
 
-## 🧹 Cleanup
+#### Problema: S3 no accesible
 
-To avoid AWS charges, destroy all resources:
+```bash
+# 1. Bucket policy
+aws s3api get-bucket-policy --bucket cloud-resume-website-abc123xy
+
+# 2. Website hosting habilitado
+aws s3api get-bucket-website --bucket cloud-resume-website-abc123xy
+
+# 3. CORS en CloudFront
+aws cloudfront get-distribution --id E2A1B2C3D4E5 | grep -i cors
+```
+
+#### Problema: Lambda falla
+
+```bash
+# Ver error detallado
+aws logs tail /aws/lambda/cloud-resume-visitor-counter --follow
+
+# Ver estadísticas
+aws lambda get-function-concurrency \
+  --function-name cloud-resume-visitor-counter
+```
+
+---
+
+## 🧹 Limpiar Recursos (DESTRUIR)
+
+⚠️ **ADVERTENCIA:** Esto elimina TODO. No se puede recuperar.
 
 ```bash
 cd terraform
 terraform destroy
+
+# Confirma escribiendo: yes
+# Espera 2-3 minutos
 ```
 
-**Warning**: This will permanently delete all resources and data!
-
-## 🐛 Troubleshooting
-
-### Visitor count not updating
-
-1. Check browser console for errors
-2. Verify API endpoint in `script.js`
-3. Check Lambda function logs in CloudWatch
-4. Verify CORS settings on API Gateway
-
-### S3 website not accessible
-
-1. Ensure S3 bucket policy allows public read
-2. Verify static website hosting is enabled
-3. Check CloudFront distribution status
-
-### Lambda function errors
-
-1. Check IAM role has DynamoDB permissions
-2. Verify DynamoDB table name matches
-3. Check Lambda timeout settings
-4. Review CloudWatch logs
-
-## 📚 Resources
-
-- [AWS Cloud Resume Challenge](https://cloudresumechallenge.dev/)
-- [Terraform AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-- [AWS Lambda Python Documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python.html)
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-## ⭐ Show Your Support
-
-If this project helped you, give it a ⭐!
+Manually:
+1. AWS Console → S3 → Delete bucket
+2. AWS Console → CloudFront → Disable & delete
+3. AWS Console → Lambda → Delete function
+4. AWS Console → DynamoDB → Delete table
+5. AWS Console → API Gateway → Delete API
+6. AWS Console → IAM → Delete roles
 
 ---
 
-**Built with ❤️ using AWS, Terraform, and GitHub Actions**
+## 📚 Referencias
+
+- [Cloud Resume Challenge](https://cloudresumechallenge.dev/) — Reto original
+- [AWS Lambda Docs](https://docs.aws.amazon.com/lambda/)
+- [Terraform AWS](https://registry.terraform.io/providers/hashicorp/aws/)
+- [DynamoDB Guide](https://docs.aws.amazon.com/dynamodb/)
+- [GitHub Actions](https://docs.github.com/en/actions)
+
+---
+
+## 🔒 Seguridad
+
+**Implementado:**
+- ✅ S3 bucket policy — Solo lectura pública
+- ✅ CloudFront — HTTPS automático (AWS cert)
+- ✅ Lambda IAM — Permisos mínimos (least privilege)
+- ✅ CORS — Configurado en API Gateway
+- ✅ Secrets — En GitHub Actions secrets
+- ✅ Logs — CloudWatch para auditoría
+
+**Para producción:**
+- Agregar API Key o JWT en Lambda
+- Habilitar versionado en S3
+- WAF en CloudFront
+- CloudTrail para auditoría completa
+- Encryption en DynamoDB
+
+---
+
+## 📝 Licencia
+
+MIT License — Libre para usar, modificar y compartir
+
+```
+Copyright (c) 2024 Joseph Dominguez
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software... (MIT full text)
+```
+
+---
+
+## 📞 Contacto
+
+- 📧 **Email:** josephelias.12341@gmail.com
+- 💼 **LinkedIn:** [linkedin.com/in/josephdominguez-](https://www.linkedin.com/in/josephdominguez-)
+- 🐙 **GitHub:** [github.com/PavoToXx](https://github.com/PavoToXx)
+- 🌍 **Ubicación:** Ecuador 🇪🇨
+
+---
+
+**Última actualización:** Marzo 2024  
+**Estado:** ✅ Activo y en mantenimiento
+
+Construido con ❤️ usando **AWS, Terraform, GitHub Actions y Python**
