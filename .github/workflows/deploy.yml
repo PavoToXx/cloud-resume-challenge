@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-
-=======
 # name: Deploy Cloud Resume
 
 # on:
@@ -103,4 +100,4 @@
 #       - name: Deployment complete
 #         run: |
 #           echo "✅ Frontend and backend deployed successfully!"
->>>>>>> Stashed changes
+
