@@ -2,6 +2,19 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap");
 
+/* Paleta de colores */
+:root {
+    --color-1: #05422C;     /* Verde oscuro */
+    --color-2: #051B42;     /* Azul oscuro */
+    --color-3: #42051B;     /* Rojo oscuro */
+    --color-4: #422C05;     /* Marrón oscuro */
+    --text-primary: #F0F0F0; /* Blanco claro */
+    --text-secondary: #B0B0B0; /* Gris claro */
+    --accent-blue: #63b3ed;
+    --accent-orange: #f6ad55;
+    --accent-green: #68d391;
+}
+
 /* Reset / Box sizing */
 * {
     margin: 0;
@@ -16,9 +29,9 @@ html, body {
 
 body {
     font-family: 'Open Sans', 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #001b1f 0%, #00446e 50%, #092642 100%);
+    background: linear-gradient(135deg, var(--color-2) 0%, var(--color-1) 50%, var(--color-3) 100%);
     background-attachment: fixed;
-    color: #e2e8f0;
+    color: var(--text-primary);
     padding: 2rem;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
@@ -29,6 +42,7 @@ body {
 .logo {
     width: 120px;
     margin-bottom: 1rem;
+    margin: 0 auto;
 }
 
 /* Contenedor centrado */
