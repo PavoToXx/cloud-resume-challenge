@@ -4,7 +4,7 @@
 
 /* Paleta de colores */
 :root {
-    --color-1: #05422C;     /* Verde oscuro */
+    --color-1: #043a26;     /* Verde oscuro */
     --color-2: #051B42;     /* Azul oscuro */
     --color-3: #42051B;     /* Rojo oscuro */
     --color-4: #422C05;     /* Marrón oscuro */
@@ -28,15 +28,16 @@ html, body {
 }
 
 body {
-    font-family: 'Open Sans', 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, var(--color-2) 0%, var(--color-1) 50%, var(--color-3) 100%);
-    background-attachment: fixed;
+    font-family: 'Open Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, var(--color-1) 10%, rgb(11, 85, 58) 50%, var(--color-1) 100%);
+    background-attachment: fixed;   
     color: var(--text-primary);
     padding: 2rem;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height: 1.6;
-    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+    backdrop-filter: blur(40px);
 }
 
 .logo {
@@ -47,7 +48,7 @@ body {
 
 /* Contenedor centrado */
 .container {
-    max-width: 95%;     /* un poco más ancho para caber layout tipo portfolio */
+    max-width: 98%;     /* un poco más ancho para caber layout tipo portfolio */
     margin: 0 auto;
 }
 
@@ -55,30 +56,32 @@ body {
 header {
     text-align: center;
     padding: 2.25rem 0;
-    border-bottom: 1px solid rgba(99, 179, 237, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     margin-bottom: 2.25rem;
     position: relative;
-    background: rgba(20, 25, 50, 0.4);
-    backdrop-filter: blur(20px);
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border-radius: 20px;
     padding: 2.25rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 h1 {
     font-size: 2.75rem;
-    color: #63b3ed;        /* acento azul */
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: 0.4rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    text-shadow: 0 4px 15px rgba(99, 179, 237, 0.15);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 20px rgba(99, 179, 237, 0.3);
 }
 
 .titulo {
-    color: #f6ad55;        /* naranja */
+    color: rgba(255, 255, 255, 0.7);
     font-size: 1.05rem;
     margin-bottom: 1rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 /* Contacto */
@@ -88,7 +91,7 @@ h1 {
     gap: 1.25rem;
     flex-wrap: wrap;
     font-size: 0.95rem;
-    color: #a0aec0;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .contacto span {
@@ -99,29 +102,29 @@ h1 {
 .visitas {
     margin-top: 0.9rem;
     font-size: 0.85rem;
-    color: #68d391;        /* verde */
+    color: rgba(104, 211, 145, 0.8);
 }
 
 /* Secciones estilo card (inspirado en main.css) */
 section {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: rgba(0, 85, 37, 0.048);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border-radius: 12px;
-    border: 1px solid rgba(99, 179, 237, 0.12);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Encabezados de sección (uppercase como spectral) */
 h2 {
-    color: #63b3ed;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1rem;
     font-size: 1.25rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-weight: 600;
 }
 
 /* Listas y items */
@@ -134,7 +137,7 @@ ul {
 
 li {
     padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(99, 179, 237, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /* Proyecto: título + descripción */
@@ -144,24 +147,24 @@ li {
 }
 
 .proyecto h3 {
-    color: #f6ad55;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 0.4rem;
     font-size: 1.05rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 /* Links */
 a {
-    color: #63b3ed;
+    color: rgba(99, 179, 237, 0.9);
     text-decoration: none;
     font-size: 0.95rem;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 a:hover { 
-    color: #90cdf4;
-    text-decoration: underline;
-    text-shadow: 0 0 10px rgba(99, 179, 237, 0.3);
+    color: rgba(144, 205, 244, 0.95);
+    text-decoration: none;
+    text-shadow: 0 0 20px rgba(99, 179, 237, 0.4);
 }
 
 /* Certifications layout */
@@ -176,19 +179,28 @@ a:hover {
 
 .certifications img {
     display: inline-block;
-    border-radius: 6px;
-    border: 1px solid rgba(255,255,255,0.04);
-    box-shadow: 0 0 16px rgba(2,6,23,0.6);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.certifications img:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .credly-badges {
-    background: #f8fafc;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     padding: .5rem;
-    border-radius: 10px;
+    border-radius: 14px;
     display: flex;
     gap: .5rem;
     flex-wrap: wrap;
     justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Skills badges (pulido visual) */
@@ -199,34 +211,35 @@ a:hover {
 }
 
 .skills span {
-    background: rgba(30, 40, 70, 0.4);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(30px) saturate(150%);
+    -webkit-backdrop-filter: blur(30px) saturate(150%);
     padding: 0.45rem 1rem;
     border-radius: 999px;
     font-size: 0.85rem;
-    color: #c7f0d6;
-    border: 1px solid rgba(99, 179, 237, 0.2);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.03);
-    font-weight: 600;
-    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .skills span:hover {
-    background: rgba(40, 50, 90, 0.5);
-    border-color: rgba(99, 179, 237, 0.4);
-    box-shadow: 0 6px 20px rgba(99, 179, 237, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 6px 20px rgba(99, 179, 237, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
 }
 
 /* Small utility: card (para proyectos o experience) */
 .card {
-    background: rgba(20, 25, 50, 0.35);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
     padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid rgba(99, 179, 237, 0.12);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 /* Row utility (versión simplificada de main.css) */
@@ -252,10 +265,10 @@ a:hover {
 footer {
     margin-top: 2.5rem;
     text-align: center;
-    color: #94a3b8;
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.85rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(99, 179, 237, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Icon helper (Font Awesome) */
@@ -278,29 +291,41 @@ img {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit,Z);
     gap: 1.25rem;
 }
 
 .proyecto-card {
-    background: rgba(10, 18, 35, 0.55);
-    border: 1px solid rgba(99, 179, 237, 0.2);
-    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
     padding: 1.1rem;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.proyecto-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 .proyecto-card h3 {
-    color: var(--accent-orange);
+    color: rgba(255, 255, 255, 0.95);
     font-size: 1.08rem;
     margin-bottom: 0.6rem;
+    font-weight: 600;
 }
 
 .proyecto-desc {
-    color: var(--text-primary);
-    opacity: 0.95;
+    color: rgba(255, 255, 255, 0.75);
+    opacity: 1;
     margin-bottom: 0.85rem;
     min-height: 3.2em;
+    line-height: 1.6;
 }
 
 .tech {
@@ -312,12 +337,14 @@ img {
 
 .tech span {
     font-size: 0.78rem;
-    font-weight: 600;
+    font-weight: 500;
     padding: 0.3rem 0.65rem;
     border-radius: 999px;
-    background: rgba(99, 179, 237, 0.15);
-    border: 1px solid rgba(99, 179, 237, 0.35);
-    color: #d8ecff;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .proyecto-media {
@@ -328,10 +355,10 @@ img {
 }
 
 .proyecto-media figure {
-    border: 1px solid rgba(99, 179, 237, 0.2);
-    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.18);
+    background: rgba(0, 0, 0, 0.15);
 }
 
 .proyecto-media img {
@@ -341,15 +368,15 @@ img {
 }
 
 .proyecto-media img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 24px rgba(99, 179, 237, 0.4);
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(99, 179, 237, 0.25);
 }
 
 .proyecto-media figcaption {
     font-size: 0.78rem;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.55);
     padding: 0.45rem 0.6rem;
-    border-top: 1px solid rgba(99, 179, 237, 0.12);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .proyecto-acciones {
@@ -360,29 +387,36 @@ img {
 
 .btn {
     display: inline-block;
-    border-radius: 8px;
-    border: 1px solid rgba(99, 179, 237, 0.35);
-    background: rgba(99, 179, 237, 0.2);
-    color: #e8f4ff;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    color: rgba(255, 255, 255, 0.95);
     font-size: 0.86rem;
-    font-weight: 700;
+    font-weight: 600;
     padding: 0.45rem 0.85rem;
     text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover {
-    background: rgba(99, 179, 237, 0.32);
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     text-decoration: none;
 }
 
 .btn-secondary {
-    background: rgba(246, 173, 85, 0.18);
-    border-color: rgba(246, 173, 85, 0.4);
-    color: #ffe9cc;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .btn-secondary:hover {
-    background: rgba(246, 173, 85, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 @media (max-width: 640px) {
