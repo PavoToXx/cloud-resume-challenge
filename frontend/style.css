@@ -47,7 +47,7 @@ body {
 
 /* Contenedor centrado */
 .container {
-    max-width: 1000px;     /* un poco más ancho para caber layout tipo portfolio */
+    max-width: 95%;     /* un poco más ancho para caber layout tipo portfolio */
     margin: 0 auto;
 }
 
@@ -274,4 +274,124 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+}
+
+.proyecto-card {
+    background: rgba(10, 18, 35, 0.55);
+    border: 1px solid rgba(99, 179, 237, 0.2);
+    border-radius: 14px;
+    padding: 1.1rem;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}
+
+.proyecto-card h3 {
+    color: var(--accent-orange);
+    font-size: 1.08rem;
+    margin-bottom: 0.6rem;
+}
+
+.proyecto-desc {
+    color: var(--text-primary);
+    opacity: 0.95;
+    margin-bottom: 0.85rem;
+    min-height: 3.2em;
+}
+
+.tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 0.95rem;
+}
+
+.tech span {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(99, 179, 237, 0.15);
+    border: 1px solid rgba(99, 179, 237, 0.35);
+    color: #d8ecff;
+}
+
+.proyecto-media {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    margin-bottom: 0.95rem;
+}
+
+.proyecto-media figure {
+    border: 1px solid rgba(99, 179, 237, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.18);
+}
+
+.proyecto-media img {
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.proyecto-media img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(99, 179, 237, 0.4);
+}
+
+.proyecto-media figcaption {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    padding: 0.45rem 0.6rem;
+    border-top: 1px solid rgba(99, 179, 237, 0.12);
+}
+
+.proyecto-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.btn {
+    display: inline-block;
+    border-radius: 8px;
+    border: 1px solid rgba(99, 179, 237, 0.35);
+    background: rgba(99, 179, 237, 0.2);
+    color: #e8f4ff;
+    font-size: 0.86rem;
+    font-weight: 700;
+    padding: 0.45rem 0.85rem;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: rgba(99, 179, 237, 0.32);
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background: rgba(246, 173, 85, 0.18);
+    border-color: rgba(246, 173, 85, 0.4);
+    color: #ffe9cc;
+}
+
+.btn-secondary:hover {
+    background: rgba(246, 173, 85, 0.3);
+}
+
+@media (max-width: 640px) {
+    .proyecto-card {
+        padding: 0.95rem;
+    }
+
+    .proyecto-acciones a {
+        flex: 1 1 auto;
+        text-align: center;
+    }
 }

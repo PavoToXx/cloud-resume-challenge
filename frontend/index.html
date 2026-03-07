@@ -63,22 +63,109 @@
         </section>
 
         <!-- PROYECTOS -->
-        <section>
-            <h2>Proyectos</h2>
+            <section class="projects-section">
+                <h2>Proyectos</h2>
 
-            <div class="proyecto">
-                <h3>☁️ Cloud Resume Challenge (AWS)</h3>
-                <p>
-                    CV desplegado con AWS S3, CloudFront, Lambda y DynamoDB, integrando CI/CD con GitHub Actions y contador de visitas serverless.
-                </p>
-            </div>
+                <div class="projects-grid">
+                    <article class="proyecto-card">
+                        <h3>☁️ Cloud Resume Challenge (AWS)</h3>
 
-            <div class="proyecto">
-                <h3>⚽ Modelo de Machine Learning para Predicción de Partidos</h3>
-                <p>
-                    Desarrollo de modelo predictivo aplicando análisis de datos, feature engineering y evaluación de algoritmos de ML.
-                </p>
-            </div>
+                        <p class="proyecto-desc">
+                            CV serverless desplegado en AWS con frontend estático, backend con Lambda y persistencia en DynamoDB.
+                            Incluye CI/CD con GitHub Actions y contador de visitas en tiempo real.
+                        </p>
+
+                        <div class="tech">
+                            <span>AWS</span>
+                            <span>S3</span>
+                            <span>CloudFront</span>
+                            <span>Lambda</span>
+                            <span>DynamoDB</span>
+                            <span>GitHub Actions</span>
+                        </div>
+
+                        <div class="proyecto-media">
+                            <figure>
+                                <img src="assets/aquitectura_cloud.png" alt="Arquitectura del sistema Cloud Resume">
+                            </figure>
+                            <!-- <figure>
+                                <img src="assets/cloud-dashboard.png" alt="Dashboard del proyecto Cloud Resume">
+                            </figure> -->
+                            <figure>
+                                <img src="assets/flow_cloud_cvResume.png" alt="Diagrama del pipeline CI/CD de Cloud Resume">
+                            </figure>
+                        </div>
+
+                        <div class="proyecto-acciones">
+                            <a class="btn" href="https://github.com/PavoToXx/cloud-resume-challenge" target="_blank" rel="noopener noreferrer">Repositorio</a>
+                            <a class="btn btn-secondary" href="https://d2s1g6429pldt.cloudfront.net/" target="_blank" rel="noopener noreferrer">Demo</a>
+                        </div>
+                    </article>
+
+                    <article class="proyecto-card">
+                        <h3>☁️ Predicción de Fallos de Servidores</h3>
+    
+                        <p class="proyecto-desc">
+                            Pipeline MLOps end-to-end para anticipar fallos con modelos de ML y despliegue cloud-native.
+                            Incluye entrenamiento, tracking, contenedorización, despliegue y monitoreo.
+                        </p>
+    
+                        <div class="tech">
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>Scikit-learn</span>
+                            <span>MLflow</span>
+                            <span>FastAPI</span>
+                            <span>Docker</span>
+                            <span>AWS</span>
+                        </div>
+    
+                        <div class="proyecto-media">
+                            <figure>
+                                <img src="assets/architecture_simple_mlops_pipeline.png" alt="Arquitectura del sistema MLOps">
+                            </figure>
+                                <!-- <figure>
+                                    <img src="assets/projects/mlops-dashboard.png" alt="Dashboard de monitoreo del pipeline MLOps">
+                                </figure> -->
+                            <figure>
+                                <img src="assets/CICD_pipeline_mlops.png" alt="Diagrama del pipeline MLOps">
+                            </figure>
+                        </div>
+    
+                        <div class="proyecto-acciones">
+                            <a class="btn" href="https://github.com/PavoToXx/mlops-pipeline" target="_blank" rel="noopener noreferrer">Repositorio</a>
+                            <!-- <a class="btn btn-secondary" href="#" target="_blank" rel="noopener noreferrer">Caso de estudio</a> -->
+                        </div>
+                    </article>
+
+                    <article class="proyecto-card">
+                        <h3>⚽ Modelo de Machine Learning para Predicción de Partidos</h3>
+    
+                        <p class="proyecto-desc">
+                            Desarrollo de modelo predictivo aplicando análisis de datos, feature engineering y evaluación de algoritmos de ML.
+                        </p>
+    
+                        <div class="tech">
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>Scikit-learn</span>
+                            <span>XGBoost</span>
+                            <span>Google Colab</span>
+                            <span>Power BI</span>
+                            <span>Machine Learning</span>
+                        </div>
+    
+                        <div class="proyecto-media">
+                            <figure>
+                                <img src="assets/ml_prediction.dashboard.PNG" alt="Dashboard">
+                            </figure>                            
+                        </div>
+    
+                        <div class="proyecto-acciones">
+                            <a class="btn" href="https://github.com/PavoToXx/MLProject" target="_blank" rel="noopener noreferrer">Repositorio</a>
+                        </div>
+                    </article>
+                </div>
 
             <div class="proyecto">
                 <h3>📱 Desarrollo de Apps Móviles y Videojuego Multijugador</h3>

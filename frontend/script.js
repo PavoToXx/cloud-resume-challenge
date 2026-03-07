@@ -14,3 +14,9 @@ async function getVisits() {
 
 // Llama la función cuando carga la página
 getVisits();
+
+document.querySelectorAll('.proyecto-media img').forEach(img => {
+    img.addEventListener('click', function() {
+        window.open(this.src, '_blank');
+    });
+});
