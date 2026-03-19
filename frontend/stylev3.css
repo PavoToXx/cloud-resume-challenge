@@ -4,7 +4,7 @@
 
 /* Paleta de colores */
 :root {
-    --color-1: #043a26;     /* Verde oscuro */
+    --color-1: #091A1A;     /* Verde oscuro */
     --color-2: #051B42;     /* Azul oscuro */
     --color-3: #42051B;     /* Rojo oscuro */
     --color-4: #422C05;     /* Marrón oscuro */
@@ -29,7 +29,7 @@ html, body {
 
 body {
     font-family: 'Open Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
-    background: linear-gradient(135deg, var(--color-1) 10%, rgb(11, 85, 58) 50%, var(--color-1) 100%);
+    background: linear-gradient(135deg, var(--color-1) 10%, rgb(16, 73, 64) 50%, var(--color-1) 100%);
     background-attachment: fixed;   
     color: var(--text-primary);
     padding: 2rem;
