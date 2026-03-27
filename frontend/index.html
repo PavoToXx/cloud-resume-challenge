@@ -2,190 +2,203 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Joseph Domínguez</title>
-    <link rel="icon" type="image/png" href="assets\logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Estudiante de Ingeniería en Sistemas Inteligentes con enfoque en Cloud Infrastructure, MLOps e IA.">
-    <link rel="stylesheet" href="stylev4.css">
+    <title>Joseph Dominguez</title>
+    <meta name="description" content="Estudiante de Ingenieria en Sistemas Inteligentes con enfoque en Cloud Infrastructure, MLOps e IA.">
+    <link rel="icon" type="image/png" href="assets/logos/logo.png">
+    <link rel="stylesheet" href="palette.css">
+    <link rel="stylesheet" href="stylev5.css">
 </head>
-<body>
-    <div class="container">
-
-        <!-- HEADER -->
-        <header>
-            <img src="assets\logo.png" alt="Joseph Domínguez Logo" class="logo">
-            <h1>Joseph Domínguez</h1>
-            <p class="titulo">Estudiante de Ingeniería en Sistemas Inteligentes | Graduado en Música (Especialidad Guitarra) | Entusiasta de GenAIOps y MLOps</p>
-            <div class="contacto">
-                <span>📧 josephelias.12341@gmail.com</span>
-                <span><a href="https://www.linkedin.com/in/josephdominguez-" target="_blank">LinkedIn</a></span>
-                <span><a href="https://github.com/PavoToXx" target="_blank">GitHub</a></span>
-                <span><a href="https://www.credly.com/users/josephdominguez" target="_blank">Credly</a></span>
-                <span>📍 Ecuador</span>
+<body data-theme="dark">
+    <nav class="topbar">
+        <div class="topbar__inner">
+            <div class="topbar__links">
+                <a href="#perfil" data-i18n="navProfile">Perfil</a>
+                <a href="#experiencia" data-i18n="navExperience">Experiencia</a>
+                <a href="#proyectos" data-i18n="navProjects">Proyectos</a>
+                <a href="#habilidades" data-i18n="navSkills">Habilidades</a>
+                <a href="#formacion" data-i18n="navEducation">Formacion</a>
+                <a href="#certificaciones" data-i18n="navCertifications">Certificaciones</a>
+                <a href="#idiomas" data-i18n="navLanguages">Idiomas</a>
             </div>
-            <p class="visitas">Profile Views: <span id="contador">...</span></p>
+            <div class="topbar__controls">
+                <button class="toggle toggle--language" id="languageToggle" type="button" aria-label="Cambiar idioma">
+                    <span id="languageToggleText">ES | EN</span>
+                </button>
+                <button class="toggle toggle--theme" id="themeToggle" type="button" aria-label="Cambiar tema">
+                    <span id="themeToggleIcon" aria-hidden="true">&#9782;</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" id="inicio">
+        <header class="hero">
+            <img src="assets/yo.png" alt="Joseph Dominguez" class="logo">
+            <p class="hero__eyebrow" data-i18n="heroEyebrow">Cloud Infrastructure | MLOps | AI</p>
+            <h1>Joseph E. Dominguez</h1>
+            <p class="titulo" data-i18n="heroTitle">Estudiante de Ingenieria en Sistemas Inteligentes | Graduado en Musica (Especialidad Guitarra) | Entusiasta de GenAIOps y MLOps</p>
+            <div class="contacto">
+                <span><a class="contact-link" href="https://www.linkedin.com/in/josephdominguez-" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+                <span><a class="contact-link" href="https://github.com/PavoToXx" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+                <span><a class="contact-link" href="https://www.credly.com/users/josephdominguez" target="_blank" rel="noopener noreferrer">Credly</a></span>
+            </div>
+            <span data-i18n="location">Ecuador</span>
+            <p class="visitas"><span data-i18n="profileViews">Visitas al perfil</span>: <span id="contador">...</span></p>
         </header>
 
-        <!-- PERFIL -->
-        <section>
-            <h2>Perfil Profesional</h2>
-            <p>
-                Estudiante de Ingeniería en Sistemas Inteligentes en la Universidad Ecotec con una sólida base en desarrollo de software,
-                infraestructura en la nube y diseño de sistemas.
-            </p>
-            <p>
-                Cuento con experiencia práctica en desarrollo móvil, virtualización, redes y resolución de problemas técnicos.
-                Actualmente amplío conocimientos en Machine Learning, Cloud e Inteligencia Artificial, incluyendo modelos predictivos para análisis deportivo.
-            </p>
-            <p>
-                He desarrollado competencias mediante pasantías preprofesionales en SENAE y formación musical profesional,
-                aportando disciplina, creatividad, atención al detalle y aprendizaje continuo.
-            </p>
+        <section id="perfil" class="section-card">
+            <h2 data-i18n="profileHeading">Perfil Profesional</h2>
+            <p data-i18n="profileP1">Estudiante de Ingenieria en Sistemas Inteligentes en la Universidad Ecotec con una solida base en desarrollo de software, infraestructura en la nube y diseno de sistemas.</p>
+            <p data-i18n="profileP2">Cuento con experiencia practica en desarrollo movil, virtualizacion, redes y resolucion de problemas tecnicos. Actualmente amplio conocimientos en Machine Learning, Cloud e Inteligencia Artificial, incluyendo modelos predictivos para analisis deportivo.</p>
+            <p data-i18n="profileP3">He desarrollado competencias mediante pasantias preprofesionales en SENAE y formacion musical profesional, aportando disciplina, creatividad, atencion al detalle y aprendizaje continuo.</p>
         </section>
 
-        <!-- EXPERIENCIA -->
-        <section>
-            <h2>Experiencia Profesional</h2>
-            <ul>
-                <li>
-                    <strong>Pasante de TI – Soporte Técnico, SENAE (Servicio Nacional de Aduana del Ecuador)</strong><br>
-                    Junio 2025 – Agosto 2025<br>
-                    Soporte técnico en hardware y software, instalación y configuración de sistemas operativos y aplicaciones,
-                    recuperación y migración de datos, virtualización con VMware Workstation Pro y asistencia continua al personal.
+        <section id="experiencia" class="section-card">
+            <h2 data-i18n="experienceHeading">Experiencia Profesional</h2>
+            <ul class="timeline">
+                <li class="experience-item">
+                    <img class="experience-logo" src="assets/logos/Senae.png" alt="Logo institucional de la experiencia de laboratorio">
+                    <div class="experience-content">
+                        <strong data-i18n="exp1Title">Pasante de TI - Soporte Tecnico, SENAE (Servicio Nacional de Aduana del Ecuador)</strong>
+                        <span class="timeline__date" data-i18n="exp1Date">Junio 2025 - Agosto 2025</span>
+                        <p data-i18n="exp1Body">Soporte tecnico en hardware y software, instalacion y configuracion de sistemas operativos y aplicaciones, recuperacion y migracion de datos, virtualizacion con VMware Workstation Pro y asistencia continua al personal.</p>
+                    </div>
                 </li>
-                <li>
-                    <strong>Pasante de TI – Departamento de Laboratorio</strong><br>
-                    Febrero 2019 – Marzo 2019<br>
-                    Apoyo en gestión básica de bases de datos internas, registro y edición de información,
-                    y soporte en tareas técnicas y operativas del laboratorio.
+                <li class="experience-item">
+                    <img class="experience-logo" src="assets/logos/Logo_Odontomedica.PNG" alt="Logo institucional de la experiencia de laboratorio">
+                    <div class="experience-content">
+                        <strong data-i18n="exp2Title">Pasante de TI - Departamento de Laboratorio, Odontomedica</strong>
+                        <span class="timeline__date" data-i18n="exp2Date">Febrero 2019 - Marzo 2019</span>
+                        <p data-i18n="exp2Body">Apoyo en gestion basica de bases de datos internas, registro y edicion de informacion, y soporte en tareas tecnicas y operativas del laboratorio.</p>
+                    </div>
                 </li>
             </ul>
         </section>
 
-        <!-- PROYECTOS -->
-            <section class="projects-section">
-                <h2>Proyectos</h2>
+        <section id="proyectos" class="section-card projects-section">
+            <div class="section-heading">
+                <h2 data-i18n="projectsHeading">Proyectos</h2>
+                <a href="https://github.com/PavoToXx" target="_blank" rel="noopener noreferrer" data-i18n="viewGithub">Ver en GitHub</a>
+            </div>
+            <div class="projects-grid">
+                <article class="proyecto-card">
+                    <h3 data-i18n="project6Title">J.A.R — Joseph's Assistant RAG</h3>
+                    <p class="proyecto-desc" data-i18n="project6Desc">Un asistente conversacional entrenado con mis propios documentos. Pregúntale lo que quieras sobre mi experiencia, proyectos o habilidades: recupera el contexto real y te da respuestas en tu idioma.</p>
+                    <div class="tech">
+                        <span>AWS</span>
+                        <span>S3</span>
+                        <span>Azure</span>
+                        <span>RAG</span>
+                        <span>Docker</span>
+                        <span>GitHub Actions</span>
+                        <span>Artificial Intelligence</span>
+                        <span>Generative AI</span>
+                    </div>
+                    <div class="proyecto-media">
+                        <figure>
+                            <img src="assets/aquitectura_cloud.png" alt="Arquitectura del sistema Cloud Resume">
+                        </figure>
+                        <figure>
+                            <img src="assets/flow_cloud_cvResume.png" alt="Diagrama del pipeline CI/CD de Cloud Resume">
+                        </figure>
+                        <figure>
+                            <img src="assets/proyect/J.A.R dark.PNG" alt="Diagrama del pipeline CI/CD de Cloud Resume">
+                        </figure>
+                    </div>
+                    <div class="proyecto-acciones">
+                        <a class="btn" href="https://github.com/PavoToXx/cloud-resume-challenge" target="_blank" rel="noopener noreferrer" data-i18n="repository">Repositorio</a>
+                        <a class="btn btn-secondary" href="https://d2s1g6429pldt.cloudfront.net/" target="_blank" rel="noopener noreferrer" data-i18n="demo">Demo</a>
+                    </div>
+                </article>
+                
+                <article class="proyecto-card">
+                    <h3 data-i18n="project1Title">Cloud Resume Challenge (AWS)</h3>
+                    <p class="proyecto-desc" data-i18n="project1Desc">CV serverless desplegado en AWS con frontend estatico, backend con Lambda y persistencia en DynamoDB. Incluye CI/CD con GitHub Actions y contador de visitas en tiempo real.</p>
+                    <div class="tech">
+                        <span>AWS</span>
+                        <span>S3</span>
+                        <span>CloudFront</span>
+                        <span>Lambda</span>
+                        <span>DynamoDB</span>
+                        <span>GitHub Actions</span>
+                    </div>
+                    <div class="proyecto-media">
+                        <figure>
+                            <img src="assets/proyect/aquitectura_cloud.png" alt="Arquitectura del sistema Cloud Resume">
+                        </figure>
+                        <figure>
+                            <img src="assets/proyect/flow_cloud_cvResume.png" alt="Diagrama del pipeline CI/CD de Cloud Resume">
+                        </figure>
+                    </div>
+                    <div class="proyecto-acciones">
+                        <a class="btn" href="https://github.com/PavoToXx/cloud-resume-challenge" target="_blank" rel="noopener noreferrer" data-i18n="repository">Repositorio</a>
+                        <a class="btn btn-secondary" href="https://d2s1g6429pldt.cloudfront.net/" target="_blank" rel="noopener noreferrer" data-i18n="demo">Demo</a>
+                    </div>
+                </article>
 
-                <div class="projects-grid">
-                    <article class="proyecto-card">
-                        <h3>☁️ Cloud Resume Challenge (AWS)</h3>
+                <article class="proyecto-card">
+                    <h3 data-i18n="project2Title">Prediccion de Fallos de Servidores</h3>
+                    <p class="proyecto-desc" data-i18n="project2Desc">Pipeline MLOps end-to-end para anticipar fallos con modelos de ML y despliegue cloud-native. Incluye entrenamiento, tracking, contenedorizacion, despliegue y monitoreo.</p>
+                    <div class="tech">
+                        <span>Python</span>
+                        <span>Pandas</span>
+                        <span>Scikit-learn</span>
+                        <span>MLflow</span>
+                        <span>FastAPI</span>
+                        <span>Docker</span>
+                        <span>AWS</span>
+                    </div>
+                    <div class="proyecto-media">
+                        <figure>
+                            <img src="assets/proyect/architecture_simple_mlops_pipeline.png" alt="Arquitectura del sistema MLOps">
+                        </figure>
+                        <figure>
+                            <img src="assets/proyect/CICD_pipeline_mlops.png" alt="Diagrama del pipeline MLOps">
+                        </figure>
+                    </div>
+                    <div class="proyecto-acciones">
+                        <a class="btn" href="https://github.com/PavoToXx/mlops-pipeline" target="_blank" rel="noopener noreferrer" data-i18n="repository">Repositorio</a>
+                    </div>
+                </article>
 
-                        <p class="proyecto-desc">
-                            CV serverless desplegado en AWS con frontend estático, backend con Lambda y persistencia en DynamoDB.
-                            Incluye CI/CD con GitHub Actions y contador de visitas en tiempo real.
-                        </p>
-
-                        <div class="tech">
-                            <span>AWS</span>
-                            <span>S3</span>
-                            <span>CloudFront</span>
-                            <span>Lambda</span>
-                            <span>DynamoDB</span>
-                            <span>GitHub Actions</span>
-                        </div>
-
-                        <div class="proyecto-media">
-                            <figure>
-                                <img src="assets/aquitectura_cloud.png" alt="Arquitectura del sistema Cloud Resume">
-                            </figure>
-                            <!-- <figure>
-                                <img src="assets/cloud-dashboard.png" alt="Dashboard del proyecto Cloud Resume">
-                            </figure> -->
-                            <figure>
-                                <img src="assets/flow_cloud_cvResume.png" alt="Diagrama del pipeline CI/CD de Cloud Resume">
-                            </figure>
-                        </div>
-
-                        <div class="proyecto-acciones">
-                            <a class="btn" href="https://github.com/PavoToXx/cloud-resume-challenge" target="_blank" rel="noopener noreferrer">Repositorio</a>
-                            <a class="btn btn-secondary" href="https://d2s1g6429pldt.cloudfront.net/" target="_blank" rel="noopener noreferrer">Demo</a>
-                        </div>
-                    </article>
-
-                    <article class="proyecto-card">
-                        <h3>🗄️Predicción de Fallos de Servidores</h3>
-    
-                        <p class="proyecto-desc">
-                            Pipeline MLOps end-to-end para anticipar fallos con modelos de ML y despliegue cloud-native.
-                            Incluye entrenamiento, tracking, contenedorización, despliegue y monitoreo.
-                        </p>
-    
-                        <div class="tech">
-                            <span>Python</span>
-                            <span>Pandas</span>
-                            <span>Scikit-learn</span>
-                            <span>MLflow</span>
-                            <span>FastAPI</span>
-                            <span>Docker</span>
-                            <span>AWS</span>
-                        </div>
-    
-                        <div class="proyecto-media">
-                            <figure>
-                                <img src="assets/architecture_simple_mlops_pipeline.png" alt="Arquitectura del sistema MLOps">
-                            </figure>
-                                <!-- <figure>
-                                    <img src="assets/projects/mlops-dashboard.png" alt="Dashboard de monitoreo del pipeline MLOps">
-                                </figure> -->
-                            <figure>
-                                <img src="assets/CICD_pipeline_mlops.png" alt="Diagrama del pipeline MLOps">
-                            </figure>
-                        </div>
-    
-                        <div class="proyecto-acciones">
-                            <a class="btn" href="https://github.com/PavoToXx/mlops-pipeline" target="_blank" rel="noopener noreferrer">Repositorio</a>
-                            <!-- <a class="btn btn-secondary" href="#" target="_blank" rel="noopener noreferrer">Caso de estudio</a> -->
-                        </div>
-                    </article>
-
-                    <article class="proyecto-card">
-                        <h3>⚽ Modelo de Machine Learning para Predicción de Partidos</h3>
-    
-                        <p class="proyecto-desc">
-                            Desarrollo de modelo predictivo aplicando análisis de datos, feature engineering y evaluación de algoritmos de ML.
-                        </p>
-    
-                        <div class="tech">
-                            <span>Python</span>
-                            <span>Pandas</span>
-                            <span>Scikit-learn</span>
-                            <span>XGBoost</span>
-                            <span>Google Colab</span>
-                            <span>Power BI</span>
-                            <span>Machine Learning</span>
-                        </div>
-    
-                        <div class="proyecto-media">
-                            <figure>
-                                <img src="assets/ml_prediction.dashboard.PNG" alt="Dashboard">
-                            </figure>                            
-                        </div>
-    
-                        <div class="proyecto-acciones">
-                            <a class="btn" href="https://github.com/PavoToXx/MLProject" target="_blank" rel="noopener noreferrer">Repositorio</a>
-                        </div>
-                    </article>
-                </div>
-
-            <div class="proyecto">
-                <h3>📱 Desarrollo de Apps Móviles y Videojuego Multijugador</h3>
-                <p>
-                    Creación de aplicaciones Android con Kotlin para uso diario y organización personal, y desarrollo de videojuego multijugador en Unity con integraciones de pago.
-                </p>
+                <article class="proyecto-card">
+                    <h3 data-i18n="project3Title">Modelo de Machine Learning para Prediccion de Partidos</h3>
+                    <p class="proyecto-desc" data-i18n="project3Desc">Desarrollo de modelo predictivo aplicando analisis de datos, feature engineering y evaluacion de algoritmos de ML.</p>
+                    <div class="tech">
+                        <span>Python</span>
+                        <span>Pandas</span>
+                        <span>Scikit-learn</span>
+                        <span>XGBoost</span>
+                        <span>Google Colab</span>
+                        <span>Power BI</span>
+                        <span>Machine Learning</span>
+                    </div>
+                    <div class="proyecto-media">
+                        <figure>
+                            <img src="assets/proyect/ml_prediction.dashboard.PNG" alt="Dashboard del modelo de prediccion">
+                        </figure>
+                    </div>
+                    <div class="proyecto-acciones">
+                        <a class="btn" href="https://github.com/PavoToXx/MLProject" target="_blank" rel="noopener noreferrer" data-i18n="repository">Repositorio</a>
+                    </div>
+                </article>
             </div>
 
-            <div class="proyecto">
-                <h3>🎓 Proyectos Académicos</h3>
-                <p>
-                    Participación en proyectos universitarios sobre juegos en C++, configuración de servidores virtuales y desarrollo colaborativo de sistemas.
-                </p>
+            <div class="project-summary-grid">
+                <article class="summary-card">
+                    <h3 data-i18n="project4Title">Desarrollo de Apps Moviles y Videojuego Multijugador</h3>
+                    <p data-i18n="project4Desc">Creacion de aplicaciones Android con Kotlin para uso diario y organizacion personal, y desarrollo de videojuego multijugador en Unity con integraciones de pago.</p>
+                </article>
+                <article class="summary-card">
+                    <h3 data-i18n="project5Title">Proyectos Academicos</h3>
+                    <p data-i18n="project5Desc">Participacion en proyectos universitarios sobre juegos en C++, configuracion de servidores virtuales y desarrollo colaborativo de sistemas.</p>
+                </article>
             </div>
-            <a href="https://github.com/PavoToXx" target="_blank">Ver en GitHub →</a>
         </section>
 
-        <!-- HABILIDADES -->
-        <section>
-            <h2>Habilidades Técnicas</h2>
+        <section id="habilidades" class="section-card">
+            <h2 data-i18n="skillsHeading">Habilidades Tecnicas</h2>
             <div class="skills">
                 <span>AWS</span>
                 <span>GitHub</span>
@@ -220,106 +233,240 @@
             </div>
         </section>
 
-        <!-- COMPETENCIAS -->
-        <section>
-            <h2>Habilidades Complementarias</h2>
-            <ul>
-                <li>Análisis y resolución lógica de requerimientos e incidencias técnicas.</li>
-                <li>Fundamentos de gestión y coordinación de proyectos tecnológicos.</li>
-                <li>Comunicación efectiva y colaboración en equipos multidisciplinarios.</li>
-                <li>Aprendizaje continuo y alta adaptabilidad a nuevas tecnologías.</li>
-                <li>Disciplina y atención al detalle aplicadas al desarrollo y análisis de datos.</li>
-                <li>Ética profesional y buenas prácticas en el manejo de información.</li>
+        <section id="habilidades-complementarias" class="section-card">
+            <h2 data-i18n="softSkillsHeading">Habilidades Complementarias</h2>
+            <ul class="bullet-list">
+                <li data-i18n="soft1">Analisis y resolucion logica de requerimientos e incidencias tecnicas.</li>
+                <li data-i18n="soft2">Fundamentos de gestion y coordinacion de proyectos tecnologicos.</li>
+                <li data-i18n="soft3">Comunicacion efectiva y colaboracion en equipos multidisciplinarios.</li>
+                <li data-i18n="soft4">Aprendizaje continuo y alta adaptabilidad a nuevas tecnologias.</li>
+                <li data-i18n="soft5">Disciplina y atencion al detalle aplicadas al desarrollo y analisis de datos.</li>
+                <li data-i18n="soft6">Etica profesional y buenas practicas en el manejo de informacion.</li>
             </ul>
         </section>
 
-        <!-- FORMACIÓN -->
-        <section>
-            <h2>Formación Académica</h2>
-            <ul>
-                <li>
-                    <strong>Ingeniería en Sistemas Inteligentes</strong> — Universidad Ecotec, Ecuador<br>
-                    2022 – Actualidad (8vo semestre)
+        <section id="formacion" class="section-card">
+            <h2 data-i18n="educationHeading">Formacion Academica</h2>
+            <ul class="timeline">
+                <li class="education-item">
+                    <img class="education-logo" src="assets/logos/logo_ecotec.png" alt="Logo institucional de la Universidad Ecotec">
+                    <strong data-i18n="edu1Title">Ingenieria en Sistemas Inteligentes - Universidad Ecotec, Ecuador</strong>
+                    <span class="timeline__date" data-i18n="edu1Date">2022 - Actualidad (8vo semestre)</span>
                 </li>
-                <li>
-                    <strong>Bachillerato en Artes (Especialización en Guitarra)</strong> — Conservatorio Antonio Neumane, Guayaquil<br>
-                    2011 – 2022
+                <li class="education-item">
+                    <img class="education-logo" src="assets/logos/logo_AN.jpeg" alt="Logo institucional del Conservatorio Antonio Neumane">
+                    <strong data-i18n="edu2Title">Bachillerato en Artes (Especializacion en Guitarra) - Conservatorio Antonio Neumane, Guayaquil</strong>
+                    <span class="timeline__date" data-i18n="edu2Date">2011 - 2022</span>
                 </li>
-                <li>
-                    <strong>Bachillerato en Ciencias</strong> — Colegio Eloy Alfaro<br>
-                    Graduado en 2021
+                <li class="education-item">
+                    <img class="education-logo" src="assets/logos/Logo_EA.PNG" alt="Logo institucional del Colegio Eloy Alfaro">
+                    <strong data-i18n="edu3Title">Bachillerato en Ciencias - Colegio Eloy Alfaro</strong>
+                    <span class="timeline__date" data-i18n="edu3Date">Graduado en 2021</span>
                 </li>
             </ul>
         </section>
 
-        <!-- CERTIFICACIONES -->
-        <section class="certifications">
-            <h2>Certificaciones e Insignias</h2>
-            
-            <h3>Oracle</h3>
-            <ul >
-                <li class="credly-badges">
-                    <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=C85B8150F8DECE2A57E4414111A2D9558B1A51BB3E32D65E45FA6003FA78C946" target="_blank">
-                        <img src="assets\OCI_Foundations_Associate.png" 
-                            alt="Oracle OCI Foundations"
-                            width="150">
-                    </a>
-                </li>
-            </ul>
+        <section id="certificaciones" class="section-card certifications">
+            <div class="section-heading">
+                <h2 data-i18n="certHeading">Certificaciones e Insignias</h2>
+                <a href="https://www.credly.com/users/josephdominguez" target="_blank" rel="noopener noreferrer" data-i18n="viewCredly">Ver en Credly</a>
+            </div>
+            <div class="certification-brand-grid">
+                
+                <article class="certification-brand">
+                    <h3>Oracle</h3>
+                    <div class="badge-gallery badge-gallery--compact">
+                        <div class="badge-card">
+                            <a class="badge-link badge-link--image" href="assets/certifications/Oracle/Cloud Foundations Ceritified.png" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/certifications/Oracle/Cloud Foundations Ceritified.png" alt="Oracle Cloud Foundations certificate">
+                            </a>
+                            <a class="badge-certificate-link" href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=C85B8150F8DECE2A57E4414111A2D9558B1A51BB3E32D65E45FA6003FA78C946" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="certification-brand">
+                    <h3>Microsoft</h3>
+                    <div class="certification-brand-grid">
+                            <div class="badge-gallery badge-gallery--compact">
+                                <div class="badge-card">
+                                    <a class="badge-link badge-link--image" href="assets/certifications/Microsoft/Microsoft Azure Fundamentals (AZ-900)_Datacamp_page-0001.jpg" target="_blank" rel="noopener noreferrer">
+                                        <img src="assets/certifications/Microsoft/Microsoft Azure Fundamentals (AZ-900)_Datacamp_page-0001.jpg" alt="Microsoft Azure Fundamentals">
+                                    </a>
+                                    <a class="badge-certificate-link" href="https://www.credly.com/users/josephdominguez" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                                </div>
+                            </div>
+                            <div class="badge-gallery badge-gallery--compact">
+                                <div class="badge-card">
+                                    <a class="badge-link badge-link--image" href="assets/certifications/Microsoft/MLops.jpg" target="_blank" rel="noopener noreferrer">
+                                        <img src="assets/certifications/Microsoft/MLops.jpg" alt="Microsoft MLops">
+                                    </a>
+                                    <a class="badge-certificate-link" href="https://learn.microsoft.com/api/achievements/share/en-us/JosephDomingue-7167/FQ96JF2X?sharingId=BE4257F3A1C9FEE1" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                                </div>
+                            </div>
+                            <div class="badge-gallery badge-gallery--compact">
+                                <div class="badge-card">
+                                    <a class="badge-link badge-link--image" href="assets/certifications/Microsoft/GenAIOps.jpg" target="_blank" rel="noopener noreferrer">
+                                        <img src="assets/certifications/Microsoft/GenAIOps.jpg" alt="Microsoft GenAIOps">
+                                    </a>
+                                    <a class="badge-certificate-link" href="https://learn.microsoft.com/api/achievements/share/en-us/JosephDomingue-7167/EL7SM85P?sharingId=BE4257F3A1C9FEE1" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                                </div>
+                            </div>
+                        </div>
+                </article>
 
-            <h3>IBM</h3>
-            <ul>
-                <li class="credly-badges"><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="6ab60658-9d50-4fc8-ba06-295f12fea100" data-share-badge-host="https://www.credly.com"></div></li>
-                <li class="credly-badges"><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="76553779-714a-4a6f-9661-4f72aad9c7eb" data-share-badge-host="https://www.credly.com"></div></li>
-                <li class="credly-badges"><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="8be61dc2-3dc9-445f-af48-c89dac6d8f1b" data-share-badge-host="https://www.credly.com"></div></li>
-            </ul>
-            
-            <h3>AWS</h3>
-            <ul>
-                <li class="credly-badges"><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="44df7568-b2fc-430e-9ab9-e76017676ae8" data-share-badge-host="https://www.credly.com"></div></li>
-                <li class="credly-badges"><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="60e3478c-9807-47d8-a142-eb24eda50eb0" data-share-badge-host="https://www.credly.com"></div></li>
-                <li class="credly-badges"><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="0e94cbf0-e719-4402-aa8a-eeff84a6ebdf" data-share-badge-host="https://www.credly.com"></div></li>
-                <li class="credly-badges"><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="737df64b-a79e-47e9-b650-eb6227ca2651" data-share-badge-host="https://www.credly.com"></div></li>
-            </ul>
 
-            <h3>Cisco Networking Academy</h3>
-            <ul>
-                <li class="credly-badges"><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="02d767b0-d377-46c4-9e55-83d4deeb018e" data-share-badge-host="https://www.credly.com"></div></li>
-                <li class="credly-badges"><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="f820635a-b0f5-4c4e-8aa6-540f1cb80d37" data-share-badge-host="https://www.credly.com"></div></li>
-                <li class="credly-badges"><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="c89a88c3-820a-4ed3-972d-43064f4cbb45" data-share-badge-host="https://www.credly.com"></div></li>
-                <li class="credly-badges"><div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="6d0d203a-a58b-4ac4-8d4d-2bcc37396b2f" data-share-badge-host="https://www.credly.com"></div></li>
-            </ul>
-            <h3>HackerRank</h3>
-            <ul>
-                <li>SQL (Intermedio)</li>
-                <li>SQL (Básico)</li>
-                <li>Python (Básico)</li>
-            </ul>
-            
-            <h3>Sololearn</h3>
-            <ul>
-                <li>Generative AI</li>
-                <li>Prompt Engineering</li>
-            </ul>
-            <a href="https://www.credly.com/users/josephdominguez" target="_blank">Ver en Credly →</a>
+                <article class="certification-brand">
+                    <h3>AWS</h3>
+                    <div class="badge-gallery badge-gallery--compact">
+                        <div class="badge-card">
+                            <a class="badge-link badge-link--image" href="assets/certifications/AWS/AWS Cloud Practitioner_page-0001.jpg" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/certifications/AWS/AWS Cloud Practitioner_page-0001.jpg" alt="AWS Cloud Practitioner">
+                            </a>
+                            <a class="badge-certificate-link" href="https://www.credly.com/users/josephdominguez" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                        </div>
+                        <div class="badge-card">
+                            <a class="badge-link badge-link--image" href="assets/certifications/AWS/AWS Cloud Quest - Cloud_page-0001.jpg" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/certifications/AWS/AWS Cloud Quest - Cloud_page-0001.jpg" alt="AWS Cloud Quest - Cloud">
+                            </a>
+                            <a class="badge-certificate-link" href="https://www.credly.com/badges/44df7568-b2fc-430e-9ab9-e76017676ae8/linked_in_profile" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                        </div>
+                        <div class="badge-card">
+                            <a class="badge-link badge-link--image" href="assets/certifications/AWS/aws-educate-getting-started-with-databases-training.png" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/certifications/AWS/aws-educate-getting-started-with-databases-training.png" alt="AWS Educate Getting Started with Databases badge">
+                            </a>
+                            <a class="badge-certificate-link" href="https://www.credly.com/badges/0e94cbf0-e719-4402-aa8a-eeff84a6ebdf/linked_in_profile" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                        </div>
+                        <div class="badge-card">
+                            <a class="badge-link badge-link--image" href="assets/certifications/AWS/aws-educate-introduction-to-generative-ai-training-.png" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/certifications/AWS/aws-educate-introduction-to-generative-ai-training-.png" alt="AWS Educate Introduction to Generative AI badge">
+                            </a>
+                            <a class="badge-certificate-link" href="https://www.credly.com/badges/737df64b-a79e-47e9-b650-eb6227ca2651/linked_in_profile" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                        </div>
+                        <div class="badge-card">
+                            <a class="badge-link badge-link--image" href="assets/certifications/AWS/aws-educate-introduction-to-cloud-101-training-badg.png" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/certifications/AWS/aws-educate-introduction-to-cloud-101-training-badg.png" alt="AWS Educate Introduction to Cloud 101 badge">
+                            </a>
+                            <a class="badge-certificate-link" href="https://www.credly.com/badges/60e3478c-9807-47d8-a142-eb24eda50eb0/linked_in_profile" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="certification-brand">
+                    <h3>IBM</h3>
+                    <div class="badge-gallery badge-gallery--compact">
+                        <div class="badge-card">
+                            <a class="badge-link badge-link--image" href="assets/certifications/IBM/BuildSmarterAIwithEmbeddings_page-0001.jpg" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/certifications/IBM/BuildSmarterAIwithEmbeddings_page-0001.jpg" alt="IBM Build Smarter AI with Embeddings">
+                            </a>
+                            <a class="badge-certificate-link" href="https://www.credly.com/badges/76553779-714a-4a6f-9661-4f72aad9c7eb/linked_in_profile" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                        </div>
+                        <div class="badge-card">
+                            <a class="badge-link badge-link--image" href="assets/certifications/IBM/Completion Certificate _ RAG_SkillsBuild_page-0001.jpg" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/certifications/IBM/Completion Certificate _ RAG_SkillsBuild_page-0001.jpg" alt="IBM Completion Certificate _ RAG_SkillsBuild">
+                            </a>
+                            <a class="badge-certificate-link" href="https://www.credly.com/badges/6ab60658-9d50-4fc8-ba06-295f12fea100/linked_in_profile" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                        </div>
+                        <div class="badge-card">
+                            <a class="badge-link badge-link--image" href="assets/certifications/IBM/Dockerv1_page-0001.jpg" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/certifications/IBM/Dockerv1_page-0001.jpg" alt="IBM Docker v1">
+                            </a>
+                            <a class="badge-certificate-link" href="https://www.credly.com/badges/8be61dc2-3dc9-445f-af48-c89dac6d8f1b/linked_in_profile" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                        </div>
+                    </div>
+                </article>
+
+                <ul class="bullet-list">
+                    <article class="certification-brand">
+                        <h3>Cisco Networking Academy</h3>
+                        <div class="badge-gallery badge-gallery--compact">
+                            <div class="badge-card">
+                                <a class="badge-link badge-link--image" href="assets/certifications/Cisco/LinuxEssentials_page-0001.jpg" target="_blank" rel="noopener noreferrer">
+                                    <img src="assets/certifications/Cisco/LinuxEssentials_page-0001.jpg" alt="Cisco Linux Essentials">
+                                </a>
+                                <a class="badge-certificate-link" href="https://www.credly.com/badges/02d767b0-d377-46c4-9e55-83d4deeb018e/linked_in_profile" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                            </div>
+                            <div class="badge-card">
+                                <a class="badge-link badge-link--image" href="assets/certifications/Cisco/NetworkingBasicsUpdate20260326-32-c70fqj_page-0001.jpg" target="_blank" rel="noopener noreferrer">
+                                    <img src="assets/certifications/Cisco/NetworkingBasicsUpdate20260326-32-c70fqj_page-0001.jpg" alt="Cisco Networking Basics">
+                                </a>
+                                <a class="badge-certificate-link" href="https://www.credly.com/badges/f820635a-b0f5-4c4e-8aa6-540f1cb80d37/linked_in_profile" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                            </div>
+                            <div class="badge-card">
+                                <a class="badge-link badge-link--image" href="assets/certifications/Cisco/IntroCyber_page-0001.jpg" target="_blank" rel="noopener noreferrer">
+                                    <img src="assets/certifications/Cisco/IntroCyber_page-0001.jpg" alt="Cisco Introduction to Cybersecurity">
+                                </a>
+                            <a class="badge-certificate-link" href="https://www.credly.com/badges/c89a88c3-820a-4ed3-972d-43064f4cbb45/linked_in_profile" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                            </div>
+                            <div class="badge-card">
+                                <a class="badge-link badge-link--image" href="assets/certifications/Cisco/Linux_Unchatended_page-0001.jpg" target="_blank" rel="noopener noreferrer">
+                                    <img src="assets/certifications/Cisco/Linux_Unchatended_page-0001.jpg" alt="Cisco Linux Unchatended">
+                                </a>
+                                <a class="badge-certificate-link" href="https://www.credly.com/badges/6d0d203a-a58b-4ac4-8d4d-2bcc37396b2f/linked_in_profile" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                            </div>
+                        </div>
+                    </article>
+                </ul>
+
+                <ul class="bullet-list">
+                    <article class="certification-brand">
+                    <h3>HackerRank</h3>
+                        <div class="badge-gallery badge-gallery--compact">
+                            <div class="badge-card">
+                                <a class="badge-link badge-link--image" href="assets/certifications/HackerRank/python_basic certificate_page-0001.jpg" target="_blank" rel="noopener noreferrer">
+                                    <img src="assets/certifications/HackerRank/python_basic certificate_page-0001.jpg" alt="HackerRank Python Basic">
+                                </a>
+                                <a class="badge-certificate-link" href="https://www.hackerrank.com/certificates/d87a4cb96366" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                            </div>
+                            <div class="badge-card">
+                                <a class="badge-link badge-link--image" href="assets/certifications/HackerRank/sql_basic certificate_page-0001.jpg" target="_blank" rel="noopener noreferrer">
+                                    <img src="assets/certifications/HackerRank/sql_basic certificate_page-0001.jpg" alt="HackerRank SQL Basic">
+                                </a>
+                                <a class="badge-certificate-link" href="https://www.hackerrank.com/certificates/666db959e073" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                            </div>
+                            <div class="badge-card">
+                                <a class="badge-link badge-link--image" href="assets/certifications/HackerRank/sql_intermediate certificate_page-0001.jpg" target="_blank" rel="noopener noreferrer">
+                                    <img src="assets/certifications/HackerRank/sql_intermediate certificate_page-0001.jpg" alt="HackerRank SQL Intermediate">
+                                </a>
+                                <a class="badge-certificate-link" href="https://www.hackerrank.com/certificates/b3f1cc79423e" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                            </div>
+                        </div>
+                    </article>
+                </ul>
+
+                    <article class="certification-brand">
+                    <h3>Sololearn</h3>
+                        <div class="badge-gallery badge-gallery--compact">
+                            <div class="badge-card">
+                                <a class="badge-link badge-link--image" href="assets/certifications/SoloLearn/Generative_AI.jpg" target="_blank" rel="noopener noreferrer">
+                                    <img src="assets/certifications/SoloLearn/Generative_AI.jpg" alt="Sololearn AI Prompting">
+                                </a>
+                                <a class="badge-certificate-link" href="https://www.sololearn.com/certificates/CC-GXMW8IA8" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                            </div>
+                            <div class="badge-card">
+                                <a class="badge-link badge-link--image" href="assets/certifications/SoloLearn/Prompt_Engineer.jpg" target="_blank" rel="noopener noreferrer">
+                                    <img src="assets/certifications/SoloLearn/Prompt_Engineer.jpg" alt="Sololearn Prompt Engineering">
+                                </a>
+                                <a class="badge-certificate-link" href="https://www.sololearn.com/certificates/CC-24LCU3J0" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+                            </div>
+                        </div>
+                    </article>                
+            </div>
         </section>
 
-        <!-- IDIOMAS -->
-        <section>
-            <h2>Idiomas</h2>
-            <ul>
-                <li>Español: Nativo</li>
-                <li>Inglés: Intermedio</li>
+        <section id="idiomas" class="section-card">
+            <h2 data-i18n="languagesHeading">Idiomas</h2>
+            <ul class="bullet-list">
+                <li data-i18n="lang1">Espanol: Nativo</li>
+                <li data-i18n="lang2">Ingles: Intermedio</li>
             </ul>
         </section>
-        <footer>
-            <p>&copy; 2026 Joseph Domínguez. Todos los derechos reservados.</p>
 
-    </div>
-    <!-- External Scripts -->
-    <script async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
+        <footer class="footer">
+            <p data-i18n="footerText">&copy; 2026 Joseph Dominguez. Todos los derechos reservados.</p>
+        </footer>
+    </main>
 
-    <!-- Internal Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
