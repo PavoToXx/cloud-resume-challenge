@@ -1,0 +1,77 @@
+:root {
+    --background-1: #091819;
+    --background-2: #07354e;
+    --background-3: #04122c;
+    --bg-orb-1: rgba(7, 53, 78, 0.3);
+    --bg-orb-2: rgba(4, 18, 44, 0.2);
+
+    --surface-bg: rgba(8, 17, 28, 0.72);
+    --surface-border: rgba(135, 179, 216, 0.18);
+    --card-bg: rgba(10, 26, 41, 0.8);
+    --card-border: rgba(152, 198, 237, 0.12);
+    --topbar-bg: rgba(7, 19, 30, 0.78);
+    --topbar-border: rgba(140, 189, 229, 0.16);
+    --control-bg: rgba(255, 255, 255, 0.06);
+    --control-border: rgba(255, 255, 255, 0.12);
+
+    --text-primary: #f4f8fb;
+    --text-secondary: #1278dd;
+    --text-muted: #8a9aad;
+    --link-color: #12f967;
+    --link-hover: #b4e4ff;
+    --accent-strong: #7ae3bf;
+
+    --pill-bg: rgba(134, 208, 255, 0.08);
+    --pill-border: rgba(134, 208, 255, 0.18);
+    --button-bg: #7ae3bf;
+    --button-secondary-bg: rgba(255, 255, 255, 0.08);
+    --button-border: rgba(255, 255, 255, 0.12);
+    --button-text: #041018;
+    --media-bg: rgba(4, 13, 21, 0.92);
+    --media-border: rgba(255, 255, 255, 0.12);
+    --badge-bg: rgba(242, 247, 251, 0.92);
+    --badge-border: rgba(255, 255, 255, 0.12);
+    --divider: rgba(255, 255, 255, 0.1);
+
+    --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.2);
+    --shadow-card: 0 16px 38px rgba(0, 0, 0, 0.14);
+}
+
+body[data-theme="light"] {
+    --background-1: #eef4f8;
+    --background-2: #dfe9f2;
+    --background-3: #cfdce7;
+    --bg-orb-1: rgba(53, 133, 200, 0.18);
+    --bg-orb-2: rgba(57, 177, 143, 0.16);
+
+    --surface-bg: rgba(255, 255, 255, 0.74);
+    --surface-border: rgba(16, 56, 89, 0.08);
+    --card-bg: rgba(255, 255, 255, 0.88);
+    --card-border: rgba(16, 56, 89, 0.08);
+    --topbar-bg: rgba(255, 255, 255, 0.8);
+    --topbar-border: rgba(16, 56, 89, 0.08);
+    --control-bg: rgba(9, 44, 73, 0.05);
+    --control-border: rgba(9, 44, 73, 0.1);
+
+    --text-primary: #0a1d2f;
+    --text-secondary: #085594;
+    --text-muted: #6a8091;
+    --link-color: #b80676;
+    --link-hover: #084f80;
+    --accent-strong: #0b8f76;
+
+    --pill-bg: rgba(13, 110, 173, 0.08);
+    --pill-border: rgba(13, 110, 173, 0.14);
+    --button-bg: #0b8f76;
+    --button-secondary-bg: rgba(9, 44, 73, 0.994);
+    --button-border: rgba(9, 44, 73, 0.08);
+    --button-text: #ffffff;
+    --media-bg: rgba(229, 236, 242, 0.9);
+    --media-border: rgba(9, 44, 73, 0.08);
+    --badge-bg: rgba(248, 250, 252, 0.98);
+    --badge-border: rgba(9, 44, 73, 0.08);
+    --divider: rgba(9, 44, 73, 0.09);
+
+    --shadow-soft: 0 16px 40px rgba(70, 98, 122, 0.16);
+    --shadow-card: 0 14px 32px rgba(70, 98, 122, 0.12);
+}
