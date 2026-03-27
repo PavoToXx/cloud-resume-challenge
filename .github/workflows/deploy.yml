@@ -25,7 +25,8 @@ jobs:
           aws s3 sync ./frontend s3://${{ secrets.AWS_S3_BUCKET }} \
             --delete \
             --exclude "*.py" \
-            --exclude "*.tf"
+            --exclude "*.tf" \
+            --exclude "/assets/" \
 
       - name: Invalidar caché CloudFront
         run: |
