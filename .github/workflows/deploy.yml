@@ -26,7 +26,8 @@ jobs:
             --delete \
             --exclude "*.py" \
             --exclude "*.tf" \
-            
+            --exclude "assets/*" \
+            --exclude "assets/**"
 
       - name: Invalidar caché CloudFront
         run: |
