@@ -2,8 +2,6 @@
 
 A cloud-native resume built with AWS serverless architecture, Infrastructure as Code, and automated CI/CD pipelines.
 
-🌐 **Live:** https://d2s1g6429pldt.cloudfront.net/
-
 ---
 
 ## 🏗️ Architecture
